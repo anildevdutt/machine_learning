@@ -46,10 +46,10 @@ function setup() {
   }
 }
 
-function mouseClicked() {
+function keyPressed() {
   brain.batchTrain(points, labels, 1);
-
-  for(let i = 0; i < points.length; i++) {
+  stroke(0);
+  for(let i = 0; i < 100; i++) {
     let point = points[i];
     if(brain.process(point) == labels[i]) {
       fill(0, 200, 0);
@@ -58,5 +58,17 @@ function mouseClicked() {
       fill(255, 0, 0);
       ellipse(point[0], point[1], 8, 8);
     }
+  }
+}
+
+function mouseClicked() {
+  let point = [mouseX, mouseY];
+
+  if(brain.process(point) == 1) {
+    fill(40, 100, 255);
+    ellipse(point[0], point[1], 8, 8);
+  } else {
+    fill(255, 40, 255);
+    ellipse(point[0], point[1], 8, 8);
   }
 }

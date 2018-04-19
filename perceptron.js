@@ -49,6 +49,7 @@ class Perceptron {
     this.bias += error * this.learning_rate;
   }
 
+
   batchTrain(inputs, targets, cycles = 10) {
     if(inputs.length != targets.length) {
       this.errorMsg('Number of inputs and targets mismatch');
